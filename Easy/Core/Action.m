@@ -22,6 +22,8 @@
 @end
 @implementation Action
 
+
+
 DEF_SINGLETON(Action)
 +(void)actionConfigHost:(NSString *)host client:(NSString *)client codeKey:(NSString *)codeKey rightCode:(NSInteger)rightCode msgKey:(NSString *)msgKey{
     [Action sharedInstance].HOST_URL = host;
