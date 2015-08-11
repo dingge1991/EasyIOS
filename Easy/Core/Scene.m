@@ -15,6 +15,21 @@
 
 @implementation Scene
 
+
+//add this method to bind the ViewModel -> View, make the View and ViewModel more separated   by_CMD
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    Scene *scene = [super allocWithZone:zone];
+    @weakify(scene)
+    [[scene
+      rac_signalForSelector:@selector(viewDidLoad)]
+    	subscribeNext:^(id x) {
+            @strongify(scene)
+            [scene bindViewModel];
+        }];
+    
+    return scene;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,6 +44,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+- (void)bindViewModel{}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
