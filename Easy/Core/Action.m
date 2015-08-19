@@ -122,6 +122,32 @@ DEF_SINGLETON(Action)
         }
     }
     
+#if DEBUG
+    NSMutableString *mUrlString = [url mutableCopy];
+    
+    // Add form data
+    NSString *_tmpDataStr;
+    BOOL isFirstParam = YES;
+    NSArray *_allKeys = [msg.requestParams allKeys];
+    for (id _key in _allKeys) {
+        // Generate & Insert field & data
+        // Field
+        if (isFirstParam) {
+            isFirstParam = NO;
+            [mUrlString appendString:@"?"];
+        } else {
+            [mUrlString appendString:@"&"];
+        }
+        
+        // Append key & value
+        _tmpDataStr = [NSString stringWithFormat:@"%@=%@", _key, msg.requestParams[_key]];
+        [mUrlString appendString:_tmpDataStr];
+        
+    }
+    NSLog(@"%@",mUrlString);
+#else
+#endif
+    
     [self sending:msg];
     
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:url]];
@@ -184,6 +210,32 @@ DEF_SINGLETON(Action)
             requestParams = msg.requestParams;
         }
     }
+    
+#if DEBUG
+    NSMutableString *mUrlString = [url mutableCopy];
+    
+    // Add form data
+    NSString *_tmpDataStr;
+    BOOL isFirstParam = YES;
+    NSArray *_allKeys = [msg.requestParams allKeys];
+    for (id _key in _allKeys) {
+        // Generate & Insert field & data
+        // Field
+        if (isFirstParam) {
+            isFirstParam = NO;
+            [mUrlString appendString:@"?"];
+        } else {
+            [mUrlString appendString:@"&"];
+        }
+        
+        // Append key & value
+        _tmpDataStr = [NSString stringWithFormat:@"%@=%@", _key, msg.requestParams[_key]];
+        [mUrlString appendString:_tmpDataStr];
+        
+    }
+    NSLog(@"%@",mUrlString);
+#else
+#endif
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
