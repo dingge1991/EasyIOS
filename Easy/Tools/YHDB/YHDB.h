@@ -1,9 +1,8 @@
 //
 //  YHDB.h
-//  TaskMgr2
 //
-//  Created by 一鸿温 on 15/6/4.
-//  Copyright (c) 2015年 szl. All rights reserved.
+//  Created by wenyihong on 15/6/4.
+//  Copyright (c) 2015年 yh. All rights reserved.
 //
 
 #import "FMDatabase.h"
@@ -16,7 +15,7 @@
  *  @param name   0.a database:ever name you like
  *                  1.many databases:advise to use userId
  */
-+ (void)createDBWithName:(NSString *)name;
++ (void)createDB:(NSString *)name;
 
 /**
  *  1 create singleton
@@ -30,17 +29,16 @@
  *
  *  @return result
  */
-+ (BOOL)shareRelease;
++ (void)shareRelease;
 
 /**
  *  3 create table
  *
- *  @param model      [[Model alloc] init]
- *  @param primaryKey table has primary key ? primaryKey = a key from model : nil;
+ *  @param modelDic @{model : primarykey}
  *
  *  @return result of create
  */
-+ (BOOL)createTB:(id)model primaryKey:(NSString *)primaryKey;
++ (void)createTB:(NSDictionary *)modelDic;
 
 /**
  *  4 auto match to update or insert the data of a model or models which you input
@@ -50,10 +48,10 @@
  *  @param whereDic   if primary key == nil, then you need to input a whereDic{key0 : value0, key1 : value1, ...} to select the data in table which equal to the data you input and then the method will delele the data in table and insert you data
  *  @param whereInDic if primary key == nil, like param "whereDic"
  */
-+ (void)updateOrInsert:(NSArray *)modelArray
-            primaryKey:(NSString *)primaryKey
-                 where:(NSDictionary *)whereDic
-               whereIn:(NSDictionary *)whereInDic;
++ (void)save:(NSArray *)modelArray
+  primaryKey:(NSString *)primaryKey
+       where:(NSDictionary *)whereDic
+     whereIn:(NSDictionary *)whereInDic;
 
 /**
  *  5 insert data into table
