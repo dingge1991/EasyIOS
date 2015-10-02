@@ -5,7 +5,7 @@
 //  Copyright (c) 2015年 yh. All rights reserved.
 //
 
-#import "FMDatabase.h"
+#import "FMDB.h"
 
 @interface YHDB : FMDatabaseQueue
 
