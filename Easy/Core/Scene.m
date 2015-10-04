@@ -79,6 +79,12 @@
     }
 }
 
+- (void)showBackBarButtonItem:(NSString *)title {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
+    item.title = title;
+    self.navigationItem.backBarButtonItem = item;
+}
+
 - (void)setTitleView:(UIView *)titleView{
     self.navigationItem.titleView = titleView;
 }
