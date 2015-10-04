@@ -33,6 +33,7 @@ typedef enum
 @interface Scene : UIViewController
 @property(nonatomic,retain)Scene *parentScene;
 
+- (void)setUI;
 - (void)showBarButton:(EzNavigationBar)position title:(NSString *)name fontColor:(UIColor *)color;
 - (void)showBarButton:(EzNavigationBar)position imageName:(NSString *)imageName;
 - (void)showBarButton:(EzNavigationBar)position button:(UIButton *)button;

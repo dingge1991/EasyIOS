@@ -39,6 +39,10 @@
     return self;
 }
 
+- (void)setUI {
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
