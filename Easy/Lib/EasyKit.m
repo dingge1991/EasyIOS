@@ -59,6 +59,18 @@
     return YES;
 }
 
++ (BOOL)touchDocumentPath:(NSString *)path {
+    NSString *finderPath = [[self documentPath] stringByAppendingPathComponent:path];
+    if ( NO == [[NSFileManager defaultManager] fileExistsAtPath:finderPath])
+    {
+        return [[NSFileManager defaultManager] createDirectoryAtPath:finderPath
+                                         withIntermediateDirectories:YES
+                                                          attributes:nil
+                                                               error:NULL];
+    }
+    return NO;
+}
+
 
 + (BOOL)swizzleMethod:(SEL)originalSelector with:(SEL)anotherSelector in:(Class)klass {
   return [self swizzleMethod:originalSelector in:klass with:anotherSelector in:klass];

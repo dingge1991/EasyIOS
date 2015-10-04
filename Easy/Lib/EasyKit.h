@@ -14,6 +14,7 @@ typedef void (^EZVoidBlock)(void);
 + (NSString *)resourcePath; // .app 程序绝对目录，不能存任何东西
 + (BOOL)touchPath:(NSString *)path;
 + (BOOL)touchFile:(NSString *)file;
++ (BOOL)touchDocumentPath:(NSString *)path;
 
 + (BOOL)swizzleMethod:(SEL)originalSelector with:(SEL)anotherSelector in:(Class)klass;
 + (BOOL)swizzleMethod:(SEL)originalSelector in:(Class)klass with:(SEL)anotherSelector in:(Class)anotherKlass;
