@@ -44,6 +44,9 @@ typedef void (^EZVoidBlock)(void);
  }];
  */
 + (RACSignal*) rac_didNetworkChanges;
+
++ (UIWindow *)window;
+
 @end
 
 @interface $ : EasyKit {}

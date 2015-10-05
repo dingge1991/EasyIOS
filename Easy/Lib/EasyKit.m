@@ -143,6 +143,10 @@
     return RACObserve(manager, networkReachabilityStatus);
 }
 
++ (UIWindow *)window {
+    return [UIApplication sharedApplication].delegate.window;
+}
+
 @end
 
 @implementation $
