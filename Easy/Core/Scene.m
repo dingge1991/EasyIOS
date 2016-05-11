@@ -67,10 +67,15 @@
 - (void)showBarButton:(EzNavigationBar)position button:(UIButton *)button{
     if (NAV_LEFT == position) {
         [button addTarget:self action:@selector(leftButtonTouch) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        UIBarButtonItem *customItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         if (IOS7_OR_LATER) {
-            self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+            UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                               target:nil action:nil];
+            negativeSpacer.width = -6;
+            self.navigationItem.leftBarButtonItems = @[negativeSpacer, customItem];
+        }else{
+            self.navigationItem.leftBarButtonItem = customItem;
         }
     }else if (NAV_RIGHT == position){
         [button addTarget:self action:@selector(rightButtonTouch) forControlEvents:UIControlEventTouchUpInside];
