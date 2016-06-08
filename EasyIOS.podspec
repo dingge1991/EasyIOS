@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     sp.dependency 'MojoDatabase'
     sp.dependency 'TMCache'
     sp.dependency 'UIActivityIndicator-for-SDWebImage'
-    sp.dependency 'AFNetworking','3.1.0'
+    sp.dependency 'AFNetworking','2.6.3'
     sp.dependency 'GCDObjC'
     sp.dependency 'FLKAutoLayout','0.1.1'
     sp.dependency 'FontIcon'
