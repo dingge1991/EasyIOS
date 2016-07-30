@@ -29,8 +29,10 @@
         
         
         @weakify(self);
+        @weakify(scrollView);
         [RACObserve(scrollView.infiniteScrollingView, state) subscribeNext:^(id x) {
             @strongify(self);
+            @strongify(scrollView);
             [UIView animateWithDuration:0.25f animations:^{
                 switch (scrollView.infiniteScrollingView.state) {
                     case SVInfiniteScrollingStateEnded:
