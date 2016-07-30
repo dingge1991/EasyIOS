@@ -32,8 +32,10 @@
         [self loadAutoLayout];
         
         @weakify(self);
+        @weakify(scrollView);
         [RACObserve(scrollView.pullToRefreshView, state) subscribeNext:^(id x) {
             @strongify(self);
+            @strongify(scrollView);
             [UIView animateWithDuration:0.25f animations:^{
                 switch (scrollView.pullToRefreshView.state) {
                  
