@@ -38,7 +38,7 @@
                     case SVInfiniteScrollingStateEnded:
                         self.arrowImage.hidden = YES;
                         [self.activityView stopAnimating];
-                        self.statusLabel.text = @"没有了哦";
+                        self.statusLabel.text = @"木有更多了";
                         break;
                     case SVInfiniteScrollingStateStopped:
                         [self resetScrollViewContentInset:scrollView];
@@ -98,8 +98,8 @@
 {
     UILabel *label = [[UILabel alloc] init];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    label.font = [UIFont boldSystemFontOfSize:size];
-    label.textColor = [UIColor blackColor];
+    label.font = [UIFont systemFontOfSize:size];
+    label.textColor = [UIColor lightGrayColor];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentCenter;
     return label;
