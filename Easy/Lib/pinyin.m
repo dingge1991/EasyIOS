@@ -293,8 +293,8 @@ static char firstLetterArray[HANZI_COUNT] =
             firstLetters = [firstLetters stringByAppendingFormat:@"%c", firstLetterArray[index]];
         }
      
-     }else if ((letter > 'a' && letter < 'z') ||
-               (letter > 'A' && letter < 'Z')){
+     }else if ((letter >= 'a' && letter <= 'z') ||
+               (letter >= 'A' && letter <= 'Z')){
 
         if ([firstLetters length]){
             firstLetters = [firstLetters stringByAppendingFormat:@" %c", letter];
